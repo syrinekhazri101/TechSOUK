@@ -17,12 +17,16 @@ export class ProduitByCtegorieComponent {
   activatedRoute:ActivatedRoute=inject(ActivatedRoute);
   ProduitService:ProduitService=inject(ProduitService);
   ngOnInit(): void {
-
-    this.idCategoroie=Number(this.activatedRoute.snapshot.params["categorie"]);
-    console.log(this.idCategoroie);
-    this.ProduitService.getProductByCategorie(this.idCategoroie).subscribe({
-      next: (data) =>this.ListeProduit=data,
-
-    })
+    // t3es ala changements de paramètre de route
+    this.activatedRoute.params.subscribe((params) => {
+      this.idCategoroie = Number(params['categorie']);
+      this.ProduitService.getProductByCategorie(this.idCategoroie).subscribe({
+        next: (data) => {
+          this.ListeProduit = data;
+          console.log(this.ListeProduit);
+        }
+      });
+    });
+   
   }
 }

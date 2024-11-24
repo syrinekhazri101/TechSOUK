@@ -19,7 +19,8 @@
     "axe/forms": [
       "default",
       {
-        "select-name": "off"
+        "select-name": "off",
+        "label": "off"
       }
     ],
     "axe/structure": [
@@ -27,6 +28,7 @@
       {
         "list": "off"
       }
-    ]
+    ],
+    "meta-viewport": "off"
   }
 }

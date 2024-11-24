@@ -24,7 +24,21 @@ export class DetailProduitComponent {
     })
   }
 
-  ajouterpanier(id:number){
+  ajouterPanier(produit: Produit) {
+    const nom = localStorage.getItem('name');
+    if (!nom) {
+      console.error("Aucun utilisateur connecté !");
+      return;
+    }
+    const nvproduit = {
+      produit_id: produit.id,
+      quantité: 1,
+      prix: Number(produit.prix)
+    };
+    this.ProduitService.addProductToUser(nom, nvproduit).subscribe({
+      next: () => console.log('Produit ajouté avec succès !'),
+    });
+  }
 
-   }
 }
+

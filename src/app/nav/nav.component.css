@@ -3,3 +3,9 @@
 color:white;
 }
 
+.c3{
+  display: flex;
+ position: relative;
+ right:400px;
+ width:300px
+}
